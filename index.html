@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Flat | 3' Baggiovara &amp; Maranello - Guida Ospiti</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text: #172554;
+      --muted: #64748b;
+      --accent: #0f172a;
+      --accent-2: #1e293b;
+      --border: #e5e7eb;
+      --soft: #f8fafc;
+      --warning-bg: #fff7ed;
+      --warning-border: #fed7aa;
+      --warning-text: #9a3412;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+      --link: #1d4ed8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.12)), url("./cover.jpg") center/cover no-repeat;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.2;
+      color: var(--accent);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .intro-text {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn,
+    .btn-secondary,
+    .lang-btn {
+      min-height: 50px;
+      border-radius: 14px;
+      border: 2px solid var(--accent-2);
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      transition: 0.2s ease;
+      text-align: center;
+    }
+
+    .btn,
+    .btn-secondary {
+      flex: 1 1 220px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn:hover {
+      background: #020617;
+      text-decoration: none;
+    }
+
+    .btn-secondary,
+    .lang-btn {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .btn-secondary:hover,
+    .lang-btn:hover {
+      background: #eef2f7;
+      text-decoration: none;
+    }
+
+    .lang-btn {
+      flex: 1 1 120px;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .info-item { margin-bottom: 18px; }
+
+    .label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    .note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .accordion {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--soft);
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      min-height: 56px;
+      padding: 15px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--accent);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      background: #fff;
+      color: var(--accent);
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    details[open] summary::after { content: "-"; }
+
+    .details-content {
+      padding: 0 18px 18px;
+      color: #0f172a;
+    }
+
+    .steps,
+    .list {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .steps li,
+    .list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .highlight {
+      margin: 14px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--warning-border);
+      border-radius: 14px;
+      background: var(--warning-bg);
+      color: var(--warning-text);
+      font-weight: 700;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--soft);
+      padding: 16px;
+    }
+
+    .place-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .place-list li {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .place-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .place-list a {
+      display: inline-block;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    .cta-card,
+    .ecosystem-card { text-align: center; }
+
+    .cta-text,
+    .ecosystem-text {
+      max-width: 640px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .ecosystem-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .ecosystem-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--warning-border);
+      background: var(--warning-bg);
+      color: var(--warning-text);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      .hero-image { height: 200px; }
+      h1 { font-size: 26px; }
+      .grid-2,
+      .mini-grid { grid-template-columns: 1fr; }
+      .btn,
+      .btn-secondary,
+      .lang-btn { flex-basis: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero-image" aria-label="Foto di Design Flat | 3' Baggiovara &amp; Maranello"></div>
+
+    <section class="card">
+      <h1>Design Flat | 3' Baggiovara &amp; Maranello</h1>
+      <p class="subtitle" id="subtitle"></p>
+      <p class="intro-text" id="introText"></p>
+
+      <div class="button-row" aria-label="Selezione lingua">
+        <button class="lang-btn" type="button" data-lang="it" onclick="setLanguage('it')">Italiano</button>
+        <button class="lang-btn" type="button" data-lang="en" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" type="button" data-lang="fr" onclick="setLanguage('fr')">Français</button>
+        <button class="lang-btn" type="button" data-lang="es" onclick="setLanguage('es')">Español</button>
+        <button class="lang-btn" type="button" data-lang="de" onclick="setLanguage('de')">Deutsch</button>
+      </div>
+
+      <div class="button-row">
+        <a class="btn" id="mapsButton" href="https://maps.google.com/?q=Via+Don+Pietro+Garagnani+28,+Formigine,+Modena" target="_blank" rel="noopener noreferrer"></a>
+        <a class="btn" id="waButton" href="https://wa.me/393290624796?text=Buongiorno%2C%20sono%20un%20ospite%20di%20Design%20Flat%20%7C%203%27%20Baggiovara%20%26%20Maranello" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="grid-2">
+        <div>
+          <div class="info-item">
+            <span class="label" id="addressLabel"></span>
+            <div class="value" id="addressValue"></div>
+          </div>
+          <div class="info-item">
+            <span class="label" id="checkinLabel"></span>
+            <div class="value" id="checkinValue"></div>
+          </div>
+          <div class="info-item">
+            <span class="label" id="checkoutLabel"></span>
+            <div class="value" id="checkoutValue"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-item">
+            <span class="label" id="wifiLabel"></span>
+            <div class="value">TIM-93926666</div>
+            <div class="note" id="wifiPasswordLabel"></div>
+          </div>
+          <div class="info-item">
+            <span class="label" id="hostLabel"></span>
+            <div class="value">WhatsApp: +39 329 0624796</div>
+            <div class="note" id="hostNote"></div>
+          </div>
+          <div class="info-item">
+            <span class="label" id="taxiLabel"></span>
+            <div class="value"><a href="tel:+39059374242" id="taxiPhone"></a></div>
+            <div class="note"><a href="https://wa.me/393351838555?text=Buongiorno%2C%20vorrei%20prenotare%20un%20taxi%20a%20Modena" target="_blank" rel="noopener noreferrer" id="taxiWhatsapp"></a></div>
+            <div class="note" id="taxiNote"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="mainInfoTitle"></h2>
+      <div class="accordion">
+        <details open>
+          <summary id="accessTitle"></summary>
+          <div class="details-content"><ol class="steps" id="accessList"></ol></div>
+        </details>
+        <details>
+          <summary id="rulesTitle"></summary>
+          <div class="details-content">
+            <div class="highlight" id="rulesHighlight"></div>
+            <ul class="list" id="rulesList"></ul>
+          </div>
+        </details>
+        <details>
+          <summary id="gardenTitle"></summary>
+          <div class="details-content">
+            <p id="gardenText"></p>
+            <div class="highlight" id="gardenHighlight"></div>
+          </div>
+        </details>
+        <details>
+          <summary id="trashTitle"></summary>
+          <div class="details-content"><ul class="list" id="trashList"></ul></div>
+        </details>
+        <details>
+          <summary id="checkoutTitle"></summary>
+          <div class="details-content"><ul class="list" id="checkoutList"></ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="localTitle"></h2>
+      <div class="accordion">
+        <details>
+          <summary id="breakfastTitle"></summary>
+          <div class="details-content">
+            <p class="note" id="breakfastIntro"></p>
+            <ul class="place-list" id="breakfastList"></ul>
+          </div>
+        </details>
+        <details>
+          <summary id="seasonalTitle"></summary>
+          <div class="details-content">
+            <p id="seasonalText"></p>
+            <div class="highlight" id="seasonalNote"></div>
+            <div class="button-row">
+              <a class="btn-secondary" id="seasonalButton" href="https://www.piscinegreenclub.com/" target="_blank" rel="noopener noreferrer"></a>
+              <a class="btn-secondary" id="seasonalMapButton" href="https://maps.google.com/?q=Piscine+Green+Club+Via+Giardini+Nord+444%2Fb+Casinalbo" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary id="restaurantsTitle"></summary>
+          <div class="details-content">
+            <p class="note" id="restaurantsIntro"></p>
+            <ul class="place-list" id="restaurantsList"></ul>
+          </div>
+        </details>
+        <details>
+          <summary id="aperitifsTitle"></summary>
+          <div class="details-content">
+            <p class="note" id="aperitifsIntro"></p>
+            <ul class="place-list" id="aperitifsList"></ul>
+          </div>
+        </details>
+        <details>
+          <summary id="distancesTitle"></summary>
+          <div class="details-content"><ul class="list" id="distancesList"></ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="suggestionsTitle"></h2>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <h3 id="emergencyTitle"></h3>
+          <ul class="list" id="emergencyList"></ul>
+        </div>
+        <div class="mini-card">
+          <h3 id="eventsTitle"></h3>
+          <p class="note" id="eventsText"></p>
+          <div class="button-row">
+            <a class="btn-secondary" href="https://www.visitmodena.it/" target="_blank" rel="noopener noreferrer" id="eventsButton"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card ecosystem-card">
+      <div class="ecosystem-kicker" id="ecosystemKicker"></div>
+      <h2 id="ecosystemTitle"></h2>
+      <p class="ecosystem-text" id="ecosystemText"></p>
+      <div class="button-row">
+        <a class="btn-secondary" href="https://ecosistema-fga.fgahousesolutions.workers.dev/#structures" target="_blank" rel="noopener noreferrer" id="ecosystemButton"></a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const links = {
+      dondi: "https://maps.google.com/?q=Pasticceria+Dondi+Via+Giardini+Nord+1259+Casinalbo",
+      borgo: "https://maps.google.com/?q=Caff%C3%A8+del+Borgo+Via+Landucci+2+Casinalbo",
+      sanFrancesco: "https://maps.google.com/?q=Pasticceria+San+Francesco+Via+Giardini+Nord+1302+Casinalbo",
+      incontro: "https://maps.google.com/?q=Bar+L%27Incontro+Via+Giardini+Nord+Casinalbo",
+      giamberlano: "https://maps.google.com/?q=Pasticceria+Giamberlano+Via+Radici+38+Fiorano",
+      estense: "https://maps.google.com/?q=Osteria+Cucina+Estense+Via+Sant%27Eufemia+34+Modena",
+      noviPark: "https://maps.google.com/?q=Novi+Park+Modena",
+      viaRoma: "https://maps.google.com/?q=Trattoria+Via+Roma+Via+Roma+21+Casinalbo",
+      cavallino: "https://maps.google.com/?q=Ristorante+Cavallino+Via+Abetone+Inferiore+190+Maranello",
+      montana: "https://maps.google.com/?q=Ristorante+Montana+Via+Fondazza+31+Fiorano",
+      anticaMoka: "https://maps.google.com/?q=Antica+Moka+Via+Emilia+Est+1496+Modena",
+      archer: "https://maps.google.com/?q=Archer+Via+Cesare+Battisti+24+Modena",
+      monCafe: "https://maps.google.com/?q=Mon+Caf%C3%A8+Corso+Canalchiaro+70+Modena",
+      albinelli: "https://maps.google.com/?q=Mercato+Albinelli+Modena",
+      ceres: "https://maps.google.com/?q=Ceres+Fish+Bar+Via+San+Giacomo+14+Modena",
+      opera02: "https://maps.google.com/?q=Opera+02+Via+Medelana+44+Castelvetro",
+      greenClub: "https://www.piscinegreenclub.com/",
+      greenClubMap: "https://maps.google.com/?q=Piscine+Green+Club+Via+Giardini+Nord+444%2Fb+Casinalbo"
+    };
+
+    const translations = {
+      it: {
+        subtitle: "Guida Ospiti",
+        introText: "Tutte le informazioni utili per un soggiorno semplice, ordinato e senza pensieri.",
+        mapsButton: "📍 Google Maps",
+        waButton: "💬 WhatsApp",
+        addressLabel: "📍 Indirizzo",
+        addressValue: "Via Don Pietro Garagnani 28<br>Formigine, Modena",
+        checkinLabel: "🕒 Check-in",
+        checkinValue: "15:30 - 00:00",
+        checkoutLabel: "🕘 Check-out",
+        checkoutValue: "10:00 - 10:30",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password: Manu1964",
+        hostLabel: "💬 Contatto",
+        hostNote: "Solo chat 07:00-22:00",
+        taxiLabel: "🚕 Taxi Modena",
+        taxiPhone: "Tel. 059 374242",
+        taxiWhatsapp: "WhatsApp diretto: +39 335 1838555",
+        taxiNote: "COTAMO ufficiale, servizio attivo 24 ore su 24",
+        mainInfoTitle: "Informazioni principali",
+        accessTitle: "🔑 Accesso",
+        accessList: [
+          "Il cancello principale si apre manualmente. Dalla parte interna si apre premendo l'apposito tasto.",
+          "Troverete sulla sinistra, dopo la fioriera appesa alla ringhiera, la prima keybox con le chiavi della porta principale esterna.",
+          "Una volta entrati, seguite il corridoio al piano terra.",
+          "Dopo la porta dell'ascensore, raggiungete la porta nell'angolo: sopra il campanello c'è la seconda keybox.",
+          "I codici verranno forniti dall'host qualche giorno prima del check-in."
+        ],
+        rulesTitle: "📋 Regole della casa",
+        rulesHighlight: "Vi chiediamo particolare cura per gli ambienti, i libri, i quadri, le statue e tutti gli oggetti decorativi presenti in casa.",
+        rulesList: [
+          "Trattare la casa con cura e rispetto.",
+          "Non fumare all'interno dell'appartamento.",
+          "Non organizzare feste o eventi.",
+          "Rispettare la tranquillità del vicinato, soprattutto nelle ore serali e notturne.",
+          "Non ospitare persone aggiuntive non indicate nella prenotazione.",
+          "Lasciare la casa ordinata, con stoviglie lavate e rifiuti gestiti correttamente.",
+          "Usare in modo responsabile climatizzazione, luci e dotazioni dell'appartamento."
+        ],
+        gardenTitle: "🌿 Porte sul giardino",
+        gardenText: "Le chiavi per aprire le inferiate di protezione si trovano all'interno della casa con apposito portachiavi. Il mazzo è completo di tutte le chiavi per ogni finestra.",
+        gardenHighlight: "Quando si esce di casa, anche durante il soggiorno, chiudere sempre le inferiate per sicurezza. Al check-out lasciarle chiuse e lasciare le chiavi sul tavolo in soggiorno.",
+        trashTitle: "🗑️ Rifiuti",
+        trashList: [
+          "Utilizzare gli appositi raccoglitori presenti in cucina.",
+          "Per soggiorni lunghi, rispettare il calendario di raccolta porta a porta che l'host comunicherà."
+        ],
+        checkoutTitle: "✅ Prima del check-out",
+        checkoutList: [
+          "Lasciare la biancheria del bagno nel lavandino.",
+          "Chiudere porte e finestre.",
+          "Spegnere gli elettrodomestici.",
+          "Lavare le stoviglie utilizzate.",
+          "Gestire correttamente i rifiuti prima di lasciare l'appartamento.",
+          "Lasciare le chiavi delle inferiate sul tavolo in soggiorno."
+        ],
+        localTitle: "Dove andare in zona",
+        breakfastTitle: "☕ Colazione a km zero",
+        breakfastIntro: "A piedi o a 2 minuti d'auto: comodo per iniziare la giornata senza pensare al parcheggio.",
+        breakfastList: [
+          { name: "Pasticceria Dondi", href: links.dondi, text: "A pochi passi dall'alloggio: riferimento locale per paste artigianali." },
+          { name: "Caffè del Borgo", href: links.borgo, text: "Atmosfera tranquilla per cappuccino e brioche." },
+          { name: "Pasticceria San Francesco", href: links.sanFrancesco, text: "Storica, sulla via principale, con buona varietà e servizio cordiale." },
+          { name: "Bar L'Incontro", href: links.incontro, text: "Pratico per un caffè veloce prima di lavoro o ospedale." },
+          { name: "Pasticceria Giamberlano", href: links.giamberlano, text: "A 8 minuti d'auto verso Maranello/Fiorano: tappa speciale per dolci curati." }
+        ],
+        seasonalTitle: "🏊 Relax estivo: Green Club",
+        seasonalText: "A pochi minuti dall'appartamento si trovano le Piscine Green Club, un'oasi estiva a Casinalbo con piscina a sfioro semi-olimpionica, piscina per bambini, vasca idromassaggio, giardino attrezzato, cocktail bar, ristorante e campi da padel.",
+        seasonalNote: "Attenzione: attività stagionale estiva, ingresso a pagamento e struttura non gestita da noi. Verificare sempre date, orari, disponibilità e prezzi sul sito ufficiale prima di andare.",
+        seasonalButton: "🌐 Sito Piscine Green Club",
+        seasonalMapButton: "📍 Apri su Google Maps",
+        restaurantsTitle: "🍴 Ristoranti consigliati",
+        restaurantsIntro: "Tradizione modenese, comodita sotto casa e qualche indirizzo speciale tra Modena e Maranello.",
+        restaurantsList: [
+          { name: "Osteria Cucina Estense", href: links.estense, text: "Scelta d'eccellenza in centro a Modena. Consigliato parcheggio al Novi Park.", extra: "Novi Park", extraHref: links.noviPark },
+          { name: "Trattoria Via Roma", href: links.viaRoma, text: "A piedi dall'appartamento: cucina tradizionale, piatti generosi e atmosfera familiare." },
+          { name: "Ristorante Cavallino", href: links.cavallino, text: "A 10 minuti d'auto: mondo Ferrari, design e cucina firmata Massimo Bottura." },
+          { name: "Ristorante Montana", href: links.montana, text: "A 10 minuti d'auto: pasta fresca, atmosfera unica e cimeli Formula 1." },
+          { name: "Antica Moka", href: links.anticaMoka, text: "A 15 minuti d'auto: elegante, ideale per business dinner o occasioni speciali." }
+        ],
+        aperitifsTitle: "🍸 Aperitivi & lifestyle",
+        aperitifsIntro: "Drink in centro a Modena o sulle colline, in base al mood della serata.",
+        aperitifsList: [
+          { name: "Archer", href: links.archer, text: "Per gli amanti del vino: selezione ricercata e ambiente minimale." },
+          { name: "Mon Café", href: links.monCafe, text: "Elegante e cosmopolita, per cocktail preparati con cura." },
+          { name: "Mercato Albinelli", href: links.albinelli, text: "Aperitivo autentico tra i banchi del mercato storico." },
+          { name: "Ceres Fish Bar", href: links.ceres, text: "Bollicine e crudi di pesce in un contesto giovane e moderno." },
+          { name: "Opera 02", href: links.opera02, text: "15-20 minuti d'auto: vista sulle vigne di Lambrusco, perfetto al tramonto." }
+        ],
+        distancesTitle: "📍 Distanze strategiche",
+        distancesList: [
+          "Ospedale Civile di Baggiovara: 3 minuti d'auto.",
+          "Maranello / Museo Ferrari: 14 minuti d'auto.",
+          "Modena Centro Storico: 15 minuti d'auto.",
+          "Parcheggio: gratuito e normalmente disponibile fronte strada."
+        ],
+        suggestionsTitle: "Suggerimenti utili",
+        emergencyTitle: "🚑 Numeri utili",
+        emergencyList: ["112 - Emergenze", "115 - Vigili del Fuoco", "118 - Emergenza sanitaria"],
+        eventsTitle: "🎉 Eventi a Modena",
+        eventsText: "Per eventi, mostre, musei e itinerari aggiornati, consulta il portale turistico ufficiale Visit Modena.",
+        eventsButton: "🌐 Vai a Visit Modena",
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Visita altre nostre strutture",
+        ecosystemText: "Esperienze diverse, un unico stile di accoglienza. Se stai già pensando al tuo prossimo viaggio, puoi esplorare le altre strutture FGA attualmente disponibili.",
+        ecosystemButton: "Scopri il tuo prossimo soggiorno"
+      },
+      en: {
+        subtitle: "Guest Guide",
+        introText: "All the useful information for a simple, tidy and worry-free stay.",
+        mapsButton: "📍 Google Maps",
+        waButton: "💬 WhatsApp",
+        addressLabel: "📍 Address",
+        addressValue: "Via Don Pietro Garagnani 28<br>Formigine, Modena",
+        checkinLabel: "🕒 Check-in",
+        checkinValue: "3:30 PM - 12:00 AM",
+        checkoutLabel: "🕘 Check-out",
+        checkoutValue: "10:00 - 10:30 AM",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password: Manu1964",
+        hostLabel: "💬 Contact",
+        hostNote: "Chat only 7:00 AM-10:00 PM",
+        taxiLabel: "🚕 Modena Taxi",
+        taxiPhone: "Phone 059 374242",
+        taxiWhatsapp: "Direct WhatsApp: +39 335 1838555",
+        taxiNote: "Official COTAMO service, available 24/7",
+        mainInfoTitle: "Main information",
+        accessTitle: "🔑 Access",
+        accessList: [
+          "The main gate opens manually. From inside, press the dedicated button.",
+          "On the left, after the flower box hanging on the railing, you will find the first keybox with the keys for the external main door.",
+          "Once inside, follow the ground-floor corridor.",
+          "After the elevator door, reach the corner door: the second keybox is above the doorbell.",
+          "The host will send the codes a few days before check-in."
+        ],
+        rulesTitle: "📋 House rules",
+        rulesHighlight: "Please take special care of the rooms, books, paintings, statues and decorative objects in the apartment.",
+        rulesList: [
+          "Treat the home with care and respect.",
+          "Smoking is not allowed inside the apartment.",
+          "Parties and events are not allowed.",
+          "Respect the neighbours, especially in the evening and at night.",
+          "Do not host extra people not included in the booking.",
+          "Leave the home tidy, with dishes washed and waste managed correctly.",
+          "Use air conditioning, lights and apartment equipment responsibly."
+        ],
+        gardenTitle: "🌿 Garden doors",
+        gardenText: "The keys for the protective grilles are inside the apartment on a dedicated key ring. The set includes the keys for each window.",
+        gardenHighlight: "Whenever you leave the apartment, even during your stay, always close the grilles for safety. At check-out, leave them closed and place the keys on the living-room table.",
+        trashTitle: "🗑️ Waste",
+        trashList: ["Use the dedicated bins in the kitchen.", "For longer stays, follow the door-to-door collection calendar provided by the host."],
+        checkoutTitle: "✅ Before check-out",
+        checkoutList: ["Leave bathroom linen in the sink.", "Close doors and windows.", "Switch off appliances.", "Wash used dishes.", "Manage waste correctly before leaving.", "Leave the grille keys on the living-room table."],
+        localTitle: "Where to go nearby",
+        breakfastTitle: "☕ Local breakfast",
+        breakfastIntro: "On foot or 2 minutes by car: easy options to start the day without parking stress.",
+        breakfastList: [
+          { name: "Pasticceria Dondi", href: links.dondi, text: "Very close to the apartment, known locally for artisan pastries." },
+          { name: "Caffè del Borgo", href: links.borgo, text: "A quiet spot for cappuccino and brioche." },
+          { name: "Pasticceria San Francesco", href: links.sanFrancesco, text: "Historic pastry shop on the main road, with good variety and friendly service." },
+          { name: "Bar L'Incontro", href: links.incontro, text: "Practical for a quick coffee before work or the hospital." },
+          { name: "Pasticceria Giamberlano", href: links.giamberlano, text: "8 minutes by car towards Maranello/Fiorano, great for refined pastries." }
+        ],
+        seasonalTitle: "🏊 Summer relax: Green Club",
+        seasonalText: "A few minutes from the apartment, Piscine Green Club is a summer oasis in Casinalbo with a semi-Olympic infinity pool, children's pool, hydromassage tub, equipped garden, cocktail bar, restaurant and padel courts.",
+        seasonalNote: "Please note: summer seasonal activity, paid entrance and not managed by us. Always check dates, opening hours, availability and prices on the official website before going.",
+        seasonalButton: "🌐 Piscine Green Club website",
+        seasonalMapButton: "📍 Open in Google Maps",
+        restaurantsTitle: "🍴 Recommended restaurants",
+        restaurantsIntro: "Modenese tradition, convenient nearby options and a few special addresses between Modena and Maranello.",
+        restaurantsList: [
+          { name: "Osteria Cucina Estense", href: links.estense, text: "Excellent choice in Modena city centre. Novi Park is recommended for parking.", extra: "Novi Park", extraHref: links.noviPark },
+          { name: "Trattoria Via Roma", href: links.viaRoma, text: "Walkable from the apartment: traditional cuisine, generous dishes and a family atmosphere." },
+          { name: "Ristorante Cavallino", href: links.cavallino, text: "10 minutes by car: Ferrari world, design and cuisine by Massimo Bottura." },
+          { name: "Ristorante Montana", href: links.montana, text: "10 minutes by car: fresh pasta, unique atmosphere and Formula 1 memorabilia." },
+          { name: "Antica Moka", href: links.anticaMoka, text: "15 minutes by car: elegant, ideal for business dinners or special occasions." }
+        ],
+        aperitifsTitle: "🍸 Aperitifs & lifestyle",
+        aperitifsIntro: "Drinks in Modena city centre or in the hills, depending on the mood of the evening.",
+        aperitifsList: [
+          { name: "Archer", href: links.archer, text: "For wine lovers: refined selection and minimal atmosphere." },
+          { name: "Mon Café", href: links.monCafe, text: "Elegant and cosmopolitan, for carefully made cocktails." },
+          { name: "Mercato Albinelli", href: links.albinelli, text: "Authentic aperitif among the stalls of the historic market." },
+          { name: "Ceres Fish Bar", href: links.ceres, text: "Sparkling wine and raw seafood in a young, modern setting." },
+          { name: "Opera 02", href: links.opera02, text: "15-20 minutes by car: Lambrusco vineyard views, perfect at sunset." }
+        ],
+        distancesTitle: "📍 Strategic distances",
+        distancesList: ["Baggiovara Civil Hospital: 3 minutes by car.", "Maranello / Ferrari Museum: 14 minutes by car.", "Modena historic centre: 15 minutes by car.", "Parking: free and usually available on the street in front."],
+        suggestionsTitle: "Useful tips",
+        emergencyTitle: "🚑 Useful numbers",
+        emergencyList: ["112 - Emergency", "115 - Fire brigade", "118 - Medical emergency"],
+        eventsTitle: "🎉 Events in Modena",
+        eventsText: "For updated events, exhibitions, museums and itineraries, visit the official Visit Modena tourism portal.",
+        eventsButton: "🌐 Go to Visit Modena",
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Visit our other properties",
+        ecosystemText: "Different stays, one shared hospitality style. If you are already thinking about your next trip, you can explore the other FGA properties currently available.",
+        ecosystemButton: "Discover your next stay"
+      },
+      fr: {
+        subtitle: "Guide des hôtes",
+        introText: "Toutes les informations utiles pour un séjour simple, ordonné et sans souci.",
+        mapsButton: "📍 Google Maps",
+        waButton: "💬 WhatsApp",
+        addressLabel: "📍 Adresse",
+        addressValue: "Via Don Pietro Garagnani 28<br>Formigine, Modène",
+        checkinLabel: "🕒 Arrivée",
+        checkinValue: "15:30 - 00:00",
+        checkoutLabel: "🕘 Départ",
+        checkoutValue: "10:00 - 10:30",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Mot de passe : Manu1964",
+        hostLabel: "💬 Contact",
+        hostNote: "Chat uniquement 07:00-22:00",
+        taxiLabel: "🚕 Taxi Modène",
+        taxiPhone: "Tél. 059 374242",
+        taxiWhatsapp: "WhatsApp direct : +39 335 1838555",
+        taxiNote: "Service officiel COTAMO, disponible 24h/24",
+        mainInfoTitle: "Informations principales",
+        accessTitle: "🔑 Accès",
+        accessList: [
+          "Le portail principal s'ouvre manuellement. De l'intérieur, appuyez sur le bouton prévu.",
+          "Sur la gauche, après la jardinière accrochée à la rambarde, vous trouverez la première keybox avec les clés de la porte principale extérieure.",
+          "Une fois à l'intérieur, suivez le couloir du rez-de-chaussée.",
+          "Après la porte de l'ascenseur, allez vers la porte située dans l'angle : la deuxième keybox est au-dessus de la sonnette.",
+          "L'hôte enverra les codes quelques jours avant l'arrivée."
+        ],
+        rulesTitle: "📋 Règles de la maison",
+        rulesHighlight: "Merci de prendre particulièrement soin des espaces, livres, tableaux, statues et objets décoratifs présents dans l'appartement.",
+        rulesList: ["Traiter la maison avec soin et respect.", "Il est interdit de fumer à l'intérieur.", "Les fêtes et événements ne sont pas autorisés.", "Respecter le voisinage, surtout le soir et la nuit.", "Ne pas héberger de personnes non indiquées dans la réservation.", "Laisser la maison ordonnée, avec la vaisselle lavée et les déchets correctement gérés.", "Utiliser climatisation, lumières et équipements de manière responsable."],
+        gardenTitle: "🌿 Portes vers le jardin",
+        gardenText: "Les clés des grilles de protection se trouvent dans l'appartement sur un porte-clés dédié. Le trousseau comprend les clés de chaque fenêtre.",
+        gardenHighlight: "Lorsque vous quittez l'appartement, même pendant le séjour, fermez toujours les grilles pour votre sécurité. Au départ, laissez-les fermées et posez les clés sur la table du salon.",
+        trashTitle: "🗑️ Déchets",
+        trashList: ["Utilisez les bacs prévus dans la cuisine.", "Pour les longs séjours, respectez le calendrier de collecte porte-à-porte communiqué par l'hôte."],
+        checkoutTitle: "✅ Avant le départ",
+        checkoutList: ["Laisser le linge de bain dans le lavabo.", "Fermer portes et fenêtres.", "Éteindre les appareils électroménagers.", "Laver la vaisselle utilisée.", "Gérer correctement les déchets avant de partir.", "Laisser les clés des grilles sur la table du salon."],
+        localTitle: "Où aller à proximité",
+        breakfastTitle: "☕ Petit-déjeuner local",
+        breakfastIntro: "À pied ou à 2 minutes en voiture : des options pratiques pour commencer la journée sans stress de stationnement.",
+        breakfastList: [
+          { name: "Pasticceria Dondi", href: links.dondi, text: "Très proche du logement, connue localement pour ses pâtisseries artisanales." },
+          { name: "Caffè del Borgo", href: links.borgo, text: "Endroit calme pour cappuccino et brioche." },
+          { name: "Pasticceria San Francesco", href: links.sanFrancesco, text: "Pâtisserie historique sur la route principale, bonne variété et service aimable." },
+          { name: "Bar L'Incontro", href: links.incontro, text: "Pratique pour un café rapide avant le travail ou l'hôpital." },
+          { name: "Pasticceria Giamberlano", href: links.giamberlano, text: "À 8 minutes en voiture vers Maranello/Fiorano, idéale pour des pâtisseries soignées." }
+        ],
+        seasonalTitle: "🏊 Détente estivale : Green Club",
+        seasonalText: "À quelques minutes de l'appartement, les Piscine Green Club sont une oasis estivale à Casinalbo avec piscine à débordement semi-olympique, bassin pour enfants, bain hydromassant, jardin équipé, cocktail bar, restaurant et terrains de padel.",
+        seasonalNote: "À noter : activité saisonnière estivale, entrée payante et structure non gérée par nous. Vérifiez toujours les dates, horaires, disponibilités et tarifs sur le site officiel avant d'y aller.",
+        seasonalButton: "🌐 Site Piscine Green Club",
+        seasonalMapButton: "📍 Ouvrir dans Google Maps",
+        restaurantsTitle: "🍴 Restaurants conseillés",
+        restaurantsIntro: "Tradition modénaise, adresses pratiques près de la maison et quelques lieux spéciaux entre Modène et Maranello.",
+        restaurantsList: [
+          { name: "Osteria Cucina Estense", href: links.estense, text: "Excellente adresse au centre de Modène. Stationnement conseillé au Novi Park.", extra: "Novi Park", extraHref: links.noviPark },
+          { name: "Trattoria Via Roma", href: links.viaRoma, text: "Accessible à pied : cuisine traditionnelle, plats généreux et ambiance familiale." },
+          { name: "Ristorante Cavallino", href: links.cavallino, text: "À 10 minutes en voiture : univers Ferrari, design et cuisine signée Massimo Bottura." },
+          { name: "Ristorante Montana", href: links.montana, text: "À 10 minutes en voiture : pâtes fraîches, ambiance unique et souvenirs de Formule 1." },
+          { name: "Antica Moka", href: links.anticaMoka, text: "À 15 minutes en voiture : élégant, parfait pour dîners d'affaires ou occasions spéciales." }
+        ],
+        aperitifsTitle: "🍸 Apéritifs & lifestyle",
+        aperitifsIntro: "Un verre au centre de Modène ou dans les collines, selon l'ambiance de la soirée.",
+        aperitifsList: [
+          { name: "Archer", href: links.archer, text: "Pour les amateurs de vin : sélection recherchée et atmosphère minimale." },
+          { name: "Mon Café", href: links.monCafe, text: "Élégant et cosmopolite, pour des cocktails préparés avec soin." },
+          { name: "Mercato Albinelli", href: links.albinelli, text: "Apéritif authentique entre les stands du marché historique." },
+          { name: "Ceres Fish Bar", href: links.ceres, text: "Bulles et crus de poisson dans un cadre jeune et moderne." },
+          { name: "Opera 02", href: links.opera02, text: "15-20 minutes en voiture : vue sur les vignes de Lambrusco, parfaite au coucher du soleil." }
+        ],
+        distancesTitle: "📍 Distances stratégiques",
+        distancesList: ["Hôpital civil de Baggiovara : 3 minutes en voiture.", "Maranello / Musée Ferrari : 14 minutes en voiture.", "Centre historique de Modène : 15 minutes en voiture.", "Stationnement : gratuit et généralement disponible dans la rue devant."],
+        suggestionsTitle: "Conseils utiles",
+        emergencyTitle: "🚑 Numéros utiles",
+        emergencyList: ["112 - Urgences", "115 - Pompiers", "118 - Urgence médicale"],
+        eventsTitle: "🎉 Événements à Modène",
+        eventsText: "Pour les événements, expositions, musées et itinéraires actualisés, consultez le portail touristique officiel Visit Modena.",
+        eventsButton: "🌐 Aller sur Visit Modena",
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Visitez nos autres logements",
+        ecosystemText: "Des séjours différents, un même style d'accueil. Si vous pensez déjà à votre prochain voyage, vous pouvez explorer les autres logements FGA disponibles.",
+        ecosystemButton: "Découvrir votre prochain séjour"
+      },
+      es: {
+        subtitle: "Guía para huéspedes",
+        introText: "Toda la información útil para una estancia sencilla, ordenada y sin preocupaciones.",
+        mapsButton: "📍 Google Maps",
+        waButton: "💬 WhatsApp",
+        addressLabel: "📍 Dirección",
+        addressValue: "Via Don Pietro Garagnani 28<br>Formigine, Módena",
+        checkinLabel: "🕒 Check-in",
+        checkinValue: "15:30 - 00:00",
+        checkoutLabel: "🕘 Check-out",
+        checkoutValue: "10:00 - 10:30",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Contraseña: Manu1964",
+        hostLabel: "💬 Contacto",
+        hostNote: "Solo chat 07:00-22:00",
+        taxiLabel: "🚕 Taxi Módena",
+        taxiPhone: "Tel. 059 374242",
+        taxiWhatsapp: "WhatsApp directo: +39 335 1838555",
+        taxiNote: "Servicio oficial COTAMO, disponible 24/7",
+        mainInfoTitle: "Información principal",
+        accessTitle: "🔑 Acceso",
+        accessList: ["La puerta principal se abre manualmente. Desde dentro, pulsa el botón correspondiente.", "A la izquierda, después de la jardinera colgada en la barandilla, encontrarás la primera keybox con las llaves de la puerta principal exterior.", "Una vez dentro, sigue el pasillo de la planta baja.", "Después de la puerta del ascensor, llega a la puerta de la esquina: la segunda keybox está sobre el timbre.", "El anfitrión enviará los códigos unos días antes del check-in."],
+        rulesTitle: "📋 Reglas de la casa",
+        rulesHighlight: "Te pedimos especial cuidado con los ambientes, libros, cuadros, estatuas y objetos decorativos presentes en la casa.",
+        rulesList: ["Tratar la casa con cuidado y respeto.", "No fumar dentro del apartamento.", "No se permiten fiestas ni eventos.", "Respetar la tranquilidad del vecindario, sobre todo por la tarde y noche.", "No alojar personas adicionales no indicadas en la reserva.", "Dejar la casa ordenada, con la vajilla lavada y los residuos gestionados correctamente.", "Usar de forma responsable climatización, luces y equipamiento del apartamento."],
+        gardenTitle: "🌿 Puertas al jardín",
+        gardenText: "Las llaves para abrir las rejas de protección están dentro de la casa en un llavero específico. El juego incluye las llaves de cada ventana.",
+        gardenHighlight: "Al salir de casa, incluso durante la estancia, cierra siempre las rejas por seguridad. En el check-out, déjalas cerradas y deja las llaves sobre la mesa del salón.",
+        trashTitle: "🗑️ Residuos",
+        trashList: ["Usa los contenedores correspondientes en la cocina.", "Para estancias largas, respeta el calendario de recogida puerta a puerta que comunicará el anfitrión."],
+        checkoutTitle: "✅ Antes del check-out",
+        checkoutList: ["Dejar la ropa de baño en el lavabo.", "Cerrar puertas y ventanas.", "Apagar los electrodomésticos.", "Lavar la vajilla utilizada.", "Gestionar correctamente los residuos antes de salir.", "Dejar las llaves de las rejas sobre la mesa del salón."],
+        localTitle: "Dónde ir cerca",
+        breakfastTitle: "☕ Desayuno local",
+        breakfastIntro: "A pie o a 2 minutos en coche: opciones prácticas para empezar el día sin preocuparse por aparcar.",
+        breakfastList: [
+          { name: "Pasticceria Dondi", href: links.dondi, text: "Muy cerca del alojamiento, conocida localmente por su bollería artesanal." },
+          { name: "Caffè del Borgo", href: links.borgo, text: "Lugar tranquilo para cappuccino y brioche." },
+          { name: "Pasticceria San Francesco", href: links.sanFrancesco, text: "Pastelería histórica en la vía principal, buena variedad y trato amable." },
+          { name: "Bar L'Incontro", href: links.incontro, text: "Práctico para un café rápido antes del trabajo o del hospital." },
+          { name: "Pasticceria Giamberlano", href: links.giamberlano, text: "A 8 minutos en coche hacia Maranello/Fiorano, ideal para dulces cuidados." }
+        ],
+        seasonalTitle: "🏊 Relax de verano: Green Club",
+        seasonalText: "A pocos minutos del apartamento, Piscine Green Club es un oasis de verano en Casinalbo con piscina infinita semiolímpica, piscina infantil, bañera de hidromasaje, jardín equipado, cocktail bar, restaurante y pistas de pádel.",
+        seasonalNote: "Importante: actividad estacional de verano, entrada de pago y estructura no gestionada por nosotros. Comprueba siempre fechas, horarios, disponibilidad y precios en la web oficial antes de ir.",
+        seasonalButton: "🌐 Web Piscine Green Club",
+        seasonalMapButton: "📍 Abrir en Google Maps",
+        restaurantsTitle: "🍴 Restaurantes recomendados",
+        restaurantsIntro: "Tradición modenesa, comodidad cerca de casa y algunas direcciones especiales entre Módena y Maranello.",
+        restaurantsList: [
+          { name: "Osteria Cucina Estense", href: links.estense, text: "Excelente opción en el centro de Módena. Recomendamos aparcar en Novi Park.", extra: "Novi Park", extraHref: links.noviPark },
+          { name: "Trattoria Via Roma", href: links.viaRoma, text: "A pie desde el apartamento: cocina tradicional, platos generosos y ambiente familiar." },
+          { name: "Ristorante Cavallino", href: links.cavallino, text: "A 10 minutos en coche: mundo Ferrari, diseño y cocina de Massimo Bottura." },
+          { name: "Ristorante Montana", href: links.montana, text: "A 10 minutos en coche: pasta fresca, ambiente único y recuerdos de Fórmula 1." },
+          { name: "Antica Moka", href: links.anticaMoka, text: "A 15 minutos en coche: elegante, perfecta para cenas de negocios u ocasiones especiales." }
+        ],
+        aperitifsTitle: "🍸 Aperitivos & lifestyle",
+        aperitifsIntro: "Copas en el centro de Módena o en las colinas, según el plan de la noche.",
+        aperitifsList: [
+          { name: "Archer", href: links.archer, text: "Para amantes del vino: selección cuidada y ambiente minimalista." },
+          { name: "Mon Café", href: links.monCafe, text: "Elegante y cosmopolita, para cócteles preparados con cuidado." },
+          { name: "Mercato Albinelli", href: links.albinelli, text: "Aperitivo auténtico entre los puestos del mercado histórico." },
+          { name: "Ceres Fish Bar", href: links.ceres, text: "Burbujas y crudos de pescado en un ambiente joven y moderno." },
+          { name: "Opera 02", href: links.opera02, text: "15-20 minutos en coche: vistas a viñedos de Lambrusco, perfecto al atardecer." }
+        ],
+        distancesTitle: "📍 Distancias estratégicas",
+        distancesList: ["Hospital Civil de Baggiovara: 3 minutos en coche.", "Maranello / Museo Ferrari: 14 minutos en coche.", "Centro histórico de Módena: 15 minutos en coche.", "Aparcamiento: gratuito y normalmente disponible en la calle de enfrente."],
+        suggestionsTitle: "Consejos útiles",
+        emergencyTitle: "🚑 Números útiles",
+        emergencyList: ["112 - Emergencias", "115 - Bomberos", "118 - Emergencia médica"],
+        eventsTitle: "🎉 Eventos en Módena",
+        eventsText: "Para eventos, exposiciones, museos e itinerarios actualizados, consulta el portal turístico oficial Visit Modena.",
+        eventsButton: "🌐 Ir a Visit Modena",
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Visita nuestras otras propiedades",
+        ecosystemText: "Experiencias diferentes, un mismo estilo de hospitalidad. Si ya estás pensando en tu próximo viaje, puedes explorar las otras propiedades FGA disponibles.",
+        ecosystemButton: "Descubre tu próxima estancia"
+      },
+      de: {
+        subtitle: "Gäste-Guide",
+        introText: "Alle wichtigen Informationen für einen einfachen, ordentlichen und entspannten Aufenthalt.",
+        mapsButton: "📍 Google Maps",
+        waButton: "💬 WhatsApp",
+        addressLabel: "📍 Adresse",
+        addressValue: "Via Don Pietro Garagnani 28<br>Formigine, Modena",
+        checkinLabel: "🕒 Check-in",
+        checkinValue: "15:30 - 00:00",
+        checkoutLabel: "🕘 Check-out",
+        checkoutValue: "10:00 - 10:30",
+        wifiLabel: "📶 WLAN",
+        wifiPasswordLabel: "Passwort: Manu1964",
+        hostLabel: "💬 Kontakt",
+        hostNote: "Nur Chat 07:00-22:00",
+        taxiLabel: "🚕 Taxi Modena",
+        taxiPhone: "Tel. 059 374242",
+        taxiWhatsapp: "Direktes WhatsApp: +39 335 1838555",
+        taxiNote: "Offizieller COTAMO-Service, rund um die Uhr verfügbar",
+        mainInfoTitle: "Wichtige Informationen",
+        accessTitle: "🔑 Zugang",
+        accessList: [
+          "Das Haupttor wird manuell geöffnet. Von innen öffnen Sie es mit der entsprechenden Taste.",
+          "Links, nach dem Blumenkasten am Geländer, finden Sie die erste Keybox mit den Schlüsseln für die äußere Haupteingangstür.",
+          "Gehen Sie nach dem Betreten den Flur im Erdgeschoss entlang.",
+          "Nach der Aufzugstür erreichen Sie die Tür in der Ecke: Über der Klingel befindet sich die zweite Keybox.",
+          "Die Codes werden vom Host einige Tage vor dem Check-in mitgeteilt."
+        ],
+        rulesTitle: "📋 Hausregeln",
+        rulesHighlight: "Bitte gehen Sie besonders sorgfältig mit den Räumen, Büchern, Bildern, Statuen und dekorativen Gegenständen in der Wohnung um.",
+        rulesList: [
+          "Bitte behandeln Sie die Wohnung mit Sorgfalt und Respekt.",
+          "Rauchen in der Wohnung ist nicht erlaubt.",
+          "Partys und Veranstaltungen sind nicht erlaubt.",
+          "Bitte respektieren Sie die Ruhe der Nachbarschaft, besonders abends und nachts.",
+          "Es dürfen keine zusätzlichen Personen beherbergt werden, die nicht in der Buchung angegeben sind.",
+          "Bitte hinterlassen Sie die Wohnung ordentlich, mit gespültem Geschirr und korrekt entsorgtem Müll.",
+          "Bitte nutzen Sie Klimaanlage, Licht und Ausstattung der Wohnung verantwortungsvoll."
+        ],
+        gardenTitle: "🌿 Türen zum Garten",
+        gardenText: "Die Schlüssel für die Schutzgitter befinden sich in der Wohnung an einem speziellen Schlüsselanhänger. Der Schlüsselbund enthält die Schlüssel für jedes Fenster.",
+        gardenHighlight: "Wenn Sie die Wohnung verlassen, auch während des Aufenthalts, schließen Sie die Schutzgitter bitte immer aus Sicherheitsgründen. Beim Check-out lassen Sie sie geschlossen und legen die Schlüssel auf den Tisch im Wohnzimmer.",
+        trashTitle: "🗑️ Müll",
+        trashList: [
+          "Bitte benutzen Sie die entsprechenden Behälter in der Küche.",
+          "Bei längeren Aufenthalten beachten Sie bitte den Kalender für die Tür-zu-Tür-Müllabholung, den der Host mitteilt."
+        ],
+        checkoutTitle: "✅ Vor dem Check-out",
+        checkoutList: [
+          "Bitte legen Sie die Badwäsche ins Waschbecken.",
+          "Türen und Fenster schließen.",
+          "Elektrogeräte ausschalten.",
+          "Benutztes Geschirr spülen.",
+          "Müll vor dem Verlassen korrekt entsorgen.",
+          "Die Schlüssel der Schutzgitter auf den Tisch im Wohnzimmer legen."
+        ],
+        localTitle: "Empfehlungen in der Nähe",
+        breakfastTitle: "☕ Frühstück in der Nähe",
+        breakfastIntro: "Zu Fuß oder 2 Minuten mit dem Auto: praktische Optionen für einen stressfreien Start in den Tag.",
+        breakfastList: [
+          { name: "Pasticceria Dondi", href: links.dondi, text: "Ganz in der Nähe der Unterkunft, lokal bekannt für handwerklich gemachte Backwaren." },
+          { name: "Caffè del Borgo", href: links.borgo, text: "Ruhige Atmosphäre für Cappuccino und Brioche." },
+          { name: "Pasticceria San Francesco", href: links.sanFrancesco, text: "Historische Konditorei an der Hauptstraße, gute Auswahl und freundlicher Service." },
+          { name: "Bar L'Incontro", href: links.incontro, text: "Praktisch für einen schnellen Kaffee vor der Arbeit oder dem Krankenhausbesuch." },
+          { name: "Pasticceria Giamberlano", href: links.giamberlano, text: "8 Minuten mit dem Auto Richtung Maranello/Fiorano, ideal für besonders feine Süßspeisen." }
+        ],
+        seasonalTitle: "🏊 Sommer-Relax: Green Club",
+        seasonalText: "Nur wenige Minuten von der Wohnung entfernt liegen die Piscine Green Club, eine Sommer-Oase in Casinalbo mit semi-olympischem Infinity-Pool, Kinderbecken, Whirlpool, ausgestattetem Garten, Cocktailbar, Restaurant und Padelplätzen.",
+        seasonalNote: "Hinweis: saisonales Sommerangebot, kostenpflichtiger Eintritt und nicht von uns betrieben. Bitte prüfen Sie vor dem Besuch immer Daten, Öffnungszeiten, Verfügbarkeit und Preise auf der offiziellen Website.",
+        seasonalButton: "🌐 Website Piscine Green Club",
+        seasonalMapButton: "📍 In Google Maps öffnen",
+        restaurantsTitle: "🍴 Restaurantempfehlungen",
+        restaurantsIntro: "Modenesische Tradition, bequeme Adressen in der Nähe und besondere Empfehlungen zwischen Modena und Maranello.",
+        restaurantsList: [
+          { name: "Osteria Cucina Estense", href: links.estense, text: "Ausgezeichnete Wahl im Zentrum von Modena. Zum Parken empfehlen wir den Novi Park.", extra: "Novi Park", extraHref: links.noviPark },
+          { name: "Trattoria Via Roma", href: links.viaRoma, text: "Zu Fuß von der Wohnung erreichbar: traditionelle Küche, großzügige Gerichte und familiäre Atmosphäre." },
+          { name: "Ristorante Cavallino", href: links.cavallino, text: "10 Minuten mit dem Auto: Ferrari-Welt, Design und Küche von Massimo Bottura." },
+          { name: "Ristorante Montana", href: links.montana, text: "10 Minuten mit dem Auto: frische Pasta, besondere Atmosphäre und Formel-1-Erinnerungsstücke." },
+          { name: "Antica Moka", href: links.anticaMoka, text: "15 Minuten mit dem Auto: elegant, ideal für Geschäftsessen oder besondere Anlässe." }
+        ],
+        aperitifsTitle: "🍸 Aperitifs & Lifestyle",
+        aperitifsIntro: "Drinks im Zentrum von Modena oder in den Hügeln, je nach Stimmung des Abends.",
+        aperitifsList: [
+          { name: "Archer", href: links.archer, text: "Für Weinliebhaber: ausgewählte Etiketten und minimalistisches Ambiente." },
+          { name: "Mon Café", href: links.monCafe, text: "Elegant und kosmopolitisch, für sorgfältig zubereitete Cocktails." },
+          { name: "Mercato Albinelli", href: links.albinelli, text: "Authentischer Aperitif zwischen den Ständen des historischen Marktes." },
+          { name: "Ceres Fish Bar", href: links.ceres, text: "Schaumwein und rohe Fischspezialitäten in einem jungen, modernen Umfeld." },
+          { name: "Opera 02", href: links.opera02, text: "15-20 Minuten mit dem Auto: Blick auf die Lambrusco-Weinberge, perfekt zum Sonnenuntergang." }
+        ],
+        distancesTitle: "📍 Strategische Entfernungen",
+        distancesList: [
+          "Krankenhaus Baggiovara: 3 Minuten mit dem Auto.",
+          "Maranello / Ferrari-Museum: 14 Minuten mit dem Auto.",
+          "Historisches Zentrum von Modena: 15 Minuten mit dem Auto.",
+          "Parken: kostenlos und normalerweise direkt an der Straße verfügbar."
+        ],
+        suggestionsTitle: "Nützliche Hinweise",
+        emergencyTitle: "🚑 Wichtige Nummern",
+        emergencyList: ["112 - Notruf", "115 - Feuerwehr", "118 - Medizinischer Notfall"],
+        eventsTitle: "🎉 Veranstaltungen in Modena",
+        eventsText: "Aktuelle Veranstaltungen, Ausstellungen, Museen und Routen finden Sie auf dem offiziellen Tourismusportal Visit Modena.",
+        eventsButton: "🌐 Zu Visit Modena",
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Besuchen Sie unsere anderen Unterkünfte",
+        ecosystemText: "Unterschiedliche Aufenthalte, ein gemeinsamer Stil der Gastfreundschaft. Wenn Sie bereits an Ihre nächste Reise denken, können Sie die weiteren verfügbaren FGA-Unterkünfte entdecken.",
+        ecosystemButton: "Nächsten Aufenthalt entdecken"
+      }
+    };
+
+    function setText(id, value, asHtml = false) {
+      const element = document.getElementById(id);
+      if (!element) return;
+      if (asHtml) element.innerHTML = value;
+      else element.textContent = value;
+    }
+
+    function renderList(id, items) {
+      document.getElementById(id).innerHTML = items.map(item => `<li>${item}</li>`).join("");
+    }
+
+    function renderPlaces(id, items) {
+      document.getElementById(id).innerHTML = items.map(item => {
+        const extra = item.extra ? ` <span class="note">(<a href="${item.extraHref}" target="_blank" rel="noopener noreferrer">${item.extra}</a>)</span>` : "";
+        return `<li><a href="${item.href}" target="_blank" rel="noopener noreferrer">${item.name}</a>${extra}<div class="note">${item.text}</div></li>`;
+      }).join("");
+    }
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      Object.keys(t).forEach(key => {
+        if (Array.isArray(t[key]) || typeof t[key] === "object") return;
+        setText(key, t[key], key === "addressValue");
+      });
+
+      renderList("accessList", t.accessList);
+      renderList("rulesList", t.rulesList);
+      renderList("trashList", t.trashList);
+      renderList("checkoutList", t.checkoutList);
+      renderList("distancesList", t.distancesList);
+      renderList("emergencyList", t.emergencyList);
+      renderPlaces("breakfastList", t.breakfastList);
+      renderPlaces("restaurantsList", t.restaurantsList);
+      renderPlaces("aperitifsList", t.aperitifsList);
+
+      document.querySelectorAll(".lang-btn").forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      const wa = document.getElementById("waButton");
+      const messages = {
+        it: "Buongiorno, sono un ospite di Design Flat | 3' Baggiovara & Maranello",
+        en: "Hello, I am a guest of Design Flat | 3' Baggiovara & Maranello",
+        fr: "Bonjour, je suis un hôte de Design Flat | 3' Baggiovara & Maranello",
+        es: "Hola, soy un huésped de Design Flat | 3' Baggiovara & Maranello",
+        de: "Guten Tag, ich bin Gast im Design Flat | 3' Baggiovara & Maranello"
+      };
+      wa.href = `https://wa.me/393290624796?text=${encodeURIComponent(messages[lang])}`;
+    }
+
+    setLanguage("it");
+  </script>
+</body>
+</html>
