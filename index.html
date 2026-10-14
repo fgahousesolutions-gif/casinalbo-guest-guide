@@ -349,6 +349,21 @@
       text-transform: uppercase;
     }
 
+
+    /* Avviso corrente: card autonoma, coerente con la guida */
+    .power-card {
+      background: #fff7ed;
+      border: 2px solid #f59e0b;
+    }
+    .power-card { padding: 12px; }
+    .power-card details { background: transparent; border: 0; }
+    .power-card summary { color: #92400e; }
+    .power-card .details-content { color: #78350f; padding-top: 4px; }
+    .power-card p { margin: 0 0 12px; }
+    .power-card ol { margin: 0; padding-left: 24px; }
+    .power-card li { margin-bottom: 7px; }
+    .power-card li:last-child { margin-bottom: 0; }
+
     @media (max-width: 720px) {
       .hero-image { height: 200px; }
       h1 { font-size: 26px; }
@@ -420,6 +435,16 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="card power-card" aria-label="Istruzioni in caso di interruzione della corrente">
+      <details>
+        <summary id="powerTitle"></summary>
+        <div class="details-content">
+          <p id="powerIntro"></p>
+          <ol id="powerSteps"></ol>
+        </div>
+      </details>
     </section>
 
     <section class="card">
@@ -553,6 +578,9 @@
 
     const translations = {
       it: {
+        powerTitle: "⚡ Mancanza di corrente: come ripristinarla",
+        powerIntro: "Se la corrente elettrica si interrompe nell’appartamento, seguite queste indicazioni:",
+        powerSteps: ["Scendete le scale in direzione dei garage.", "Nell’atrio di accesso ai garage, individuate l’armadio sulla sinistra e apritelo.", "All’interno si trova il quadro elettrico generale: rialzate soltanto l’interruttore scattato (quello abbassato)."],
         subtitle: "Guida Ospiti",
         introText: "Tutte le informazioni utili per un soggiorno semplice, ordinato e senza pensieri.",
         mapsButton: "📍 Google Maps",
@@ -661,6 +689,9 @@
         ecosystemButton: "Scopri il tuo prossimo soggiorno"
       },
       en: {
+        powerTitle: "⚡ Power outage: how to restore electricity",
+        powerIntro: "If the power goes out in the apartment, please follow these steps:",
+        powerSteps: ["Go down the stairs towards the garages.", "In the garage entrance hall, find the cabinet on the left and open it.", "Inside is the main electrical panel: reset only the tripped switch (the one in the down position)."],
         subtitle: "Guest Guide",
         introText: "All the useful information for a simple, tidy and worry-free stay.",
         mapsButton: "📍 Google Maps",
@@ -754,6 +785,9 @@
         ecosystemButton: "Discover your next stay"
       },
       fr: {
+        powerTitle: "⚡ Coupure de courant : comment rétablir l’électricité",
+        powerIntro: "Si le courant est coupé dans l’appartement, suivez ces étapes :",
+        powerSteps: ["Descendez les escaliers en direction des garages.", "Dans le hall d’accès aux garages, repérez l’armoire sur la gauche et ouvrez-la.", "À l’intérieur se trouve le tableau électrique général : relevez uniquement l’interrupteur qui a sauté (celui qui est abaissé)."],
         subtitle: "Guide des hôtes",
         introText: "Toutes les informations utiles pour un séjour simple, ordonné et sans souci.",
         mapsButton: "📍 Google Maps",
@@ -839,6 +873,9 @@
         ecosystemButton: "Découvrir votre prochain séjour"
       },
       es: {
+        powerTitle: "⚡ Corte de luz: cómo restablecer la electricidad",
+        powerIntro: "Si se corta la electricidad en el apartamento, seguid estos pasos:",
+        powerSteps: ["Bajad las escaleras en dirección a los garajes.", "En el vestíbulo de acceso a los garajes, localizad el armario de la izquierda y abridlo.", "Dentro está el cuadro eléctrico general: levantad únicamente el interruptor que ha saltado (el que está bajado)."],
         subtitle: "Guía para huéspedes",
         introText: "Toda la información útil para una estancia sencilla, ordenada y sin preocupaciones.",
         mapsButton: "📍 Google Maps",
@@ -924,6 +961,9 @@
         ecosystemButton: "Descubre tu próxima estancia"
       },
       de: {
+        powerTitle: "⚡ Stromausfall: So stellen Sie die Stromversorgung wieder her",
+        powerIntro: "Falls in der Wohnung der Strom ausfällt, gehen Sie bitte wie folgt vor:",
+        powerSteps: ["Gehen Sie die Treppe in Richtung Garagen hinunter.", "Im Eingangsbereich der Garagen befindet sich links ein Schrank. Öffnen Sie ihn.", "Darin befindet sich der Hauptsicherungskasten: Schalten Sie nur den ausgelösten Schalter (der nach unten steht) wieder nach oben."],
         subtitle: "Gäste-Guide",
         introText: "Alle wichtigen Informationen für einen einfachen, ordentlichen und entspannten Aufenthalt.",
         mapsButton: "📍 Google Maps",
@@ -1060,6 +1100,7 @@
         setText(key, t[key], key === "addressValue");
       });
 
+      renderList("powerSteps", t.powerSteps);
       renderList("accessList", t.accessList);
       renderList("rulesList", t.rulesList);
       renderList("trashList", t.trashList);
