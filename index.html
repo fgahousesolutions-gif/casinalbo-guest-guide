@@ -364,6 +364,25 @@
     .power-card li { margin-bottom: 7px; }
     .power-card li:last-child { margin-bottom: 0; }
 
+
+    /* Condominio: evidenziazione delicata, integrata nell'accordion originale */
+    details.neighbourhood-rules {
+      background: #f4f7fb;
+      border-color: #cbd5e1;
+    }
+    details.neighbourhood-rules summary { color: #334155; }
+    .neighbourhood-rules .quiet-hours {
+      margin: 10px 0 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #dbe4f0;
+      font-weight: 600;
+    }
+    .neighbourhood-rules .quiet-hours p { margin: 4px 0; }
+    .neighbourhood-rules .details-content > p { margin: 0 0 12px; }
+    .neighbourhood-rules .details-content > p:last-child { margin-bottom: 0; }
+
     @media (max-width: 720px) {
       .hero-image { height: 200px; }
       h1 { font-size: 26px; }
@@ -459,6 +478,19 @@
           <div class="details-content">
             <div class="highlight" id="rulesHighlight"></div>
             <ul class="list" id="rulesList"></ul>
+          </div>
+        </details>
+        <details class="neighbourhood-rules">
+          <summary id="neighbourhoodTitle"></summary>
+          <div class="details-content">
+            <p id="neighbourhoodIntro"></p>
+            <div class="quiet-hours">
+              <p id="neighbourhoodWinter"></p>
+              <p id="neighbourhoodSummer"></p>
+            </div>
+            <p id="neighbourhoodVolume"></p>
+            <p id="neighbourhoodNoise"></p>
+            <p id="neighbourhoodThanks"></p>
           </div>
         </details>
         <details>
@@ -578,6 +610,13 @@
 
     const translations = {
       it: {
+        neighbourhoodTitle: "🌙 Rispetto del condominio e orari di silenzio",
+        neighbourhoodIntro: "L’appartamento si trova in un edificio residenziale. Per garantire a tutti un soggiorno piacevole, vi chiediamo di rispettare la tranquillità degli altri residenti, in particolare durante gli orari di silenzio previsti dal regolamento condominiale (art. 26):",
+        neighbourhoodWinter: "❄️ Periodo invernale: 22:00–07:00",
+        neighbourhoodSummer: "☀️ Periodo estivo: 23:00–08:00",
+        neighbourhoodVolume: "Televisione e musica devono essere mantenute a volume moderato; anche le conversazioni dovrebbero avere un tono rispettoso dei vicini, in qualsiasi momento della giornata.",
+        neighbourhoodNoise: "Vi chiediamo inoltre di evitare schiamazzi e rumori eccessivi, soprattutto nelle ore serali.",
+        neighbourhoodThanks: "Grazie per la collaborazione e per contribuire a mantenere un ambiente sereno per tutti.",
         powerTitle: "⚡ Mancanza di corrente: come ripristinarla",
         powerIntro: "Se la corrente elettrica si interrompe nell’appartamento, seguite queste indicazioni:",
         powerSteps: ["Scendete le scale in direzione dei garage.", "Nell’atrio di accesso ai garage, individuate l’armadio sulla sinistra e apritelo.", "All’interno si trova il quadro elettrico generale: rialzate soltanto l’interruttore scattato (quello abbassato)."],
@@ -689,6 +728,13 @@
         ecosystemButton: "Scopri il tuo prossimo soggiorno"
       },
       en: {
+        neighbourhoodTitle: "🌙 Respecting our neighbours and quiet hours",
+        neighbourhoodIntro: "The apartment is in a residential building. To ensure a pleasant stay for everyone, please respect the peace and quiet of other residents, especially during the quiet hours set out in the building regulations (Article 26):",
+        neighbourhoodWinter: "❄️ Winter period: 10:00 PM–7:00 AM",
+        neighbourhoodSummer: "☀️ Summer period: 11:00 PM–8:00 AM",
+        neighbourhoodVolume: "Please keep the TV and music at a moderate volume, and conversations at a level that respects neighbours, at all times of day.",
+        neighbourhoodNoise: "Please also avoid shouting and excessive noise, especially in the evening.",
+        neighbourhoodThanks: "Thank you for helping keep the building peaceful and welcoming for everyone.",
         powerTitle: "⚡ Power outage: how to restore electricity",
         powerIntro: "If the power goes out in the apartment, please follow these steps:",
         powerSteps: ["Go down the stairs towards the garages.", "In the garage entrance hall, find the cabinet on the left and open it.", "Inside is the main electrical panel: reset only the tripped switch (the one in the down position)."],
@@ -785,6 +831,13 @@
         ecosystemButton: "Discover your next stay"
       },
       fr: {
+        neighbourhoodTitle: "🌙 Respect du voisinage et horaires de tranquillité",
+        neighbourhoodIntro: "L’appartement se trouve dans un immeuble résidentiel. Pour le bien-être de tous, merci de respecter la tranquillité des autres résidents, notamment pendant les horaires prévus par le règlement de copropriété (article 26) :",
+        neighbourhoodWinter: "❄️ Période hivernale : 22 h 00–7 h 00",
+        neighbourhoodSummer: "☀️ Période estivale : 23 h 00–8 h 00",
+        neighbourhoodVolume: "La télévision et la musique doivent rester à un volume modéré. Merci également de parler à un niveau sonore respectueux du voisinage, à toute heure.",
+        neighbourhoodNoise: "Veuillez éviter les cris et les bruits excessifs, en particulier le soir.",
+        neighbourhoodThanks: "Merci de contribuer à préserver le calme et le confort de tous.",
         powerTitle: "⚡ Coupure de courant : comment rétablir l’électricité",
         powerIntro: "Si le courant est coupé dans l’appartement, suivez ces étapes :",
         powerSteps: ["Descendez les escaliers en direction des garages.", "Dans le hall d’accès aux garages, repérez l’armoire sur la gauche et ouvrez-la.", "À l’intérieur se trouve le tableau électrique général : relevez uniquement l’interrupteur qui a sauté (celui qui est abaissé)."],
@@ -873,6 +926,13 @@
         ecosystemButton: "Découvrir votre prochain séjour"
       },
       es: {
+        neighbourhoodTitle: "🌙 Respeto a los vecinos y horarios de descanso",
+        neighbourhoodIntro: "El apartamento se encuentra en un edificio residencial. Para que todos disfruten de una estancia agradable, os pedimos que respetéis la tranquilidad de los demás residentes, especialmente durante los horarios establecidos en el reglamento de la comunidad (artículo 26):",
+        neighbourhoodWinter: "❄️ Período de invierno: 22:00–07:00",
+        neighbourhoodSummer: "☀️ Período de verano: 23:00–08:00",
+        neighbourhoodVolume: "La televisión y la música deben mantenerse a un volumen moderado. Os rogamos también que habléis a un volumen respetuoso con los vecinos, a cualquier hora del día.",
+        neighbourhoodNoise: "Por favor, evitad los gritos y los ruidos excesivos, especialmente por la noche.",
+        neighbourhoodThanks: "Gracias por contribuir a mantener un ambiente tranquilo y agradable para todos.",
         powerTitle: "⚡ Corte de luz: cómo restablecer la electricidad",
         powerIntro: "Si se corta la electricidad en el apartamento, seguid estos pasos:",
         powerSteps: ["Bajad las escaleras en dirección a los garajes.", "En el vestíbulo de acceso a los garajes, localizad el armario de la izquierda y abridlo.", "Dentro está el cuadro eléctrico general: levantad únicamente el interruptor que ha saltado (el que está bajado)."],
@@ -961,6 +1021,13 @@
         ecosystemButton: "Descubre tu próxima estancia"
       },
       de: {
+        neighbourhoodTitle: "🌙 Rücksicht auf die Nachbarn und Ruhezeiten",
+        neighbourhoodIntro: "Die Wohnung befindet sich in einem Wohngebäude. Damit sich alle wohlfühlen, bitten wir Sie, auf die Ruhe der anderen Bewohner Rücksicht zu nehmen, insbesondere während der in der Hausordnung festgelegten Ruhezeiten (Artikel 26):",
+        neighbourhoodWinter: "❄️ Winterzeit: 22:00–07:00 Uhr",
+        neighbourhoodSummer: "☀️ Sommerzeit: 23:00–08:00 Uhr",
+        neighbourhoodVolume: "Fernseher und Musik sind stets auf einer mäßigen Lautstärke zu halten. Bitte achten Sie auch bei Gesprächen zu jeder Tageszeit auf eine angemessene Lautstärke.",
+        neighbourhoodNoise: "Bitte vermeiden Sie lautes Rufen und übermäßigen Lärm, besonders am Abend.",
+        neighbourhoodThanks: "Vielen Dank, dass Sie zu einem ruhigen und angenehmen Miteinander beitragen.",
         powerTitle: "⚡ Stromausfall: So stellen Sie die Stromversorgung wieder her",
         powerIntro: "Falls in der Wohnung der Strom ausfällt, gehen Sie bitte wie folgt vor:",
         powerSteps: ["Gehen Sie die Treppe in Richtung Garagen hinunter.", "Im Eingangsbereich der Garagen befindet sich links ein Schrank. Öffnen Sie ihn.", "Darin befindet sich der Hauptsicherungskasten: Schalten Sie nur den ausgelösten Schalter (der nach unten steht) wieder nach oben."],
